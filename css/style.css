@@ -19,9 +19,7 @@
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
-
-    --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
-            0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+    --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 }
 
 @media (min-width: 768px) {
@@ -45,7 +43,9 @@ strong {
     outline-offset: 3px;
 }
 
+
 /* Buttons */
+
 .btn {
     display: inline-block;
     padding: .5em 2.5em;
@@ -60,7 +60,7 @@ strong {
     transition: transform 200ms ease-in-out;
 }
 
-.btn:hover{
+.btn:hover {
     transform: scale(1.1)
 }
 
@@ -129,7 +129,9 @@ h3 {
     padding: .5em
 }
 
+
 /* Intro section */
+
 .intro {
     position: relative;
 }
@@ -148,19 +150,15 @@ h3 {
         width: min-content;
         margin: 0 auto;
         grid-column-gap: 1em;
-        grid-template-areas: 
-            "img title"
-            "img subtitle";
+        grid-template-areas: "img title" "img subtitle";
         grid-template-columns: min-content max-content;
     }
-
-    .intro__img{
+    .intro__img {
         grid-area: img;
         min-width: 250px;
         position: relative;
         z-index: 2;
     }
-
     .section__subtitle--intro {
         align-self: start;
         grid-column: -1 / 1;
@@ -215,8 +213,45 @@ h3 {
         margin-left: auto;
         margin-right: auto;
     }
-
-    .skill + .skill {
+    .skill+.skill {
         margin-left: 2em;
+    }
+}
+
+
+/* About me section */
+
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-me__img {
+    box-shadow: var(--bs);
+}
+
+@media (min-width: 600px) {
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: "title img" "subtitle img" "text img";
+        grid-column-gap: 2em;
+    }
+    .section__title--about {
+        grid-area: title;
+    }
+    .section__subtitle--about {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        left: -1em;
+        width: calc(100% + 2em);
+        padding-left: 1em;
+        padding-right: calc(200px + 2em);
+    }
+    .about-me__img {
+        grid-area: img;
+        position: relative;
+        z-index: 2;
     }
 }
